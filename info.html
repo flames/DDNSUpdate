@@ -1,0 +1,14 @@
+<h2>Information</h2>
+<p>For automated updates you can use this URL directly. Exchange the patameter values for username and password 
+<span class="important">http://myhost.server.tld/ddns/ddns.php?user=&lt;username&gt;&amp;pass=&lt;password&gt;</span></p>
+
+Actually we offer only one domain. As soon as you will be able to choose more top-level domains for your host and you decide to use another domain than "ddns.tld", just add parameter <span class="important">&amp;domain=&lt;domain&gt;</span> to the URL</p>
+
+<p>Normally our server auto recognizes your hosts IP address. In some rare cases, this could fail. Simply add parameter <span class="important">&amp;ip=&lt;ipaddress&gt;</span> to the URL<br>
+<span style="font-size:smaller">&bull; Address recognition does not work for you, if you want to use the DDNS service with another host than the one you are sending update request from.<br>&bull; Address recognition fails if you are behind a HTTP Proxy or VPN. Some firewalls/NAT-router may break auto recognition also.</span></p>
+
+<p>On Linux and Mac simply create a shell script and call it with cron or ipup, but please <b>do not abuse</b> the server with too frequently updates.<br>
+<pre class="script">#!/bin/sh
+cd /tmp
+rm update.php* 2>/dev/null
+wget https://myhost.server.tld/ddns/ddns.php?user=&lt;username&gt;&amp;pass=&lt;password&gt; 2>/dev/null</pre></p>

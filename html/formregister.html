@@ -1,0 +1,27 @@
+<h2><?=$LANG['titleregister'] ?></h2>
+<form method="post" action="index.php?site=register" name="ddnsform">
+<table border="0" cellspaceing="0" cellpadding="3">
+<tr>
+	<td width="150"><?=$LANG['user'] ?>:</td>
+	<td><input type="text" name="user" onBlur="usercheck_call();" /> <b>.</b> <select name="dmnid" onChange="usercheck_call();"><?=$domainselect ?></select><a name="user" id="user"> </a></td>
+</tr>
+<tr>
+	<td><?=$LANG['email'] ?>:</td>
+	<td><input type="text" name="email" /><a name="email" id="email"> </a></td>
+</tr>
+<tr>
+	<td><?=$LANG['pass'] ?>:</td>
+	<td><input type="password" name="pass" /><a name="pass" id="pass"> </a></td>
+</tr>
+<tr>
+	<td><?=$LANG['passretype'] ?>:</td>
+	<td><input type="password" name="passretype" /><a name="passretype" id="passretype"> </a></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td>
+		<input type="submit" value="Register" name="register" onclick="return checkForm()" />
+	</td>
+</tr>
+</table>
+</form>

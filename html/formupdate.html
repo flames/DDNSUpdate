@@ -1,0 +1,23 @@
+<h2><?=$LANG['titleupdate'] ?></h2>
+<form method="post" action="index.php?site=update" name="ddnsform">
+<table border="0" cellspaceing="0" cellpadding="3">
+<tr>
+	<td width="150"><?=$LANG['user'] ?>:</td>
+	<td><input type="text" name="user" /> <b>.</b> <select name="dmnid"><?=$domainselect ?></select><a name="user" id="user"> </a></td>
+</tr>
+<tr>
+	<td><?=$LANG['pass'] ?>:</td>
+	<td><input type="password" name="pass" /><a name="pass" id="pass"> </a></td>
+</tr>
+<tr>
+	<td><?=$LANG['ip'] ?>:</td>
+	<td><input type="text" name="ip" /></td>
+</tr>
+<tr>
+	<td>&nbsp;</td>
+	<td>
+		<input type="submit" value="Update" name="update" onclick="return checkForm()" />
+	</td>
+</tr>
+</table>
+</form>

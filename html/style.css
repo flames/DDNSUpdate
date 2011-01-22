@@ -1,0 +1,125 @@
+/******
+ *
+ *	DDNS Update Utility
+ *	Developped by Arthur Mayer, a.mayer@citex.net
+ *	Released under LGPL, Apache and BSD licenses (use the one you want)
+ *
+******/
+
+html {
+	overflow-y:scroll;
+}
+
+form, table, tr, td, div, a, input, pre, span {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding:0px;
+	color:#000;
+	text-decoration:none;
+}
+
+div.seite {
+	margin:auto;
+	width: 900px;
+}
+
+div.header {
+	padding:5px;
+}
+
+div.utility {
+	background-color:#F4DFA7;
+	border-top:1px solid #000;
+	padding:5px;
+}
+
+div.menu a {
+	background-color:#c0c0c0;
+	border:1px solid #000;
+	padding:5px;
+}
+
+div.description {
+	border-top:1px solid #000;
+	padding:5px;
+}
+
+div.footer {
+	border-top: 1px solid #000;
+	padding:5px;
+	/*text-align: right;*/
+}
+
+a {
+	font-weight: bold;
+}
+
+pre.script {
+	border:1px solid #c0c0c0;
+	padding:5px;
+	font-size: 12px;
+	font-style:italic;
+}
+
+span.important {
+	font-size: 12px;
+	font-style:italic;
+}
+
+input {
+	border:1px solid #666666;
+	padding:2px;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+form.inlineform {
+	padding:1px;
+	margin:0px;
+	font-weight:bold;
+}
+
+form.inlineform input {
+	border:1px solid #666666;
+	padding:0px;
+	margin:0px;
+	font-size: 11px;
+	font-weight:bold;
+}
+
+div.footer input {
+	border:1px solid #666666;
+	padding:1px;
+	margin:0px;
+	font-size: 9px;
+	font-weight:bold;
+}
+
+img {
+	position:relative;
+	top: 4px;
+	border:0px;
+}
+
+table.adminlist {
+	border-spacing:1px;
+	width:890px;
+}
+table.adminlist thead th {
+	padding:3px;
+	border-bottom:1px solid #c0c0c0;
+	white-space: nowrap ! important;
+}
+table.adminlist tbody td {
+	padding:3px;
+	border-right:1px solid #c0c0c0;
+	border-bottom:1px solid #c0c0c0;
+	white-space: nowrap ! important;
+}
+table.adminlist tbody td img {
+	top:1px;
+}
+.admin {
+	background-color:#cc0000 ! important;
+	color:#ffffff ! important;
+}
