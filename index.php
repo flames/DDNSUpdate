@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING);
 /******
  *
  *	DDNS Update Utility
@@ -9,7 +10,6 @@
 
 # TODO: improve translation, not all strings are included from language files, better to say most of them are hardcoded
 session_start();
-session_register("adminloggedin");
 
 require_once("inc/config.php");
 require_once("inc/db.php");
@@ -32,11 +32,21 @@ if (isset($_POST['adminlogout'])) {
 	$_SESSION['adminloggedin'] = '';
 }
 if ($_SESSION['adminloggedin'] == 'muy bien') {
-	$adminform = '<form method="post" action="index.php" name="adminform"><input type="submit" value="logout" name="adminlogout" class="admin" /></form>';
-	$adminbutton = '<a href="index.php?site=admin" class="admin">Administration</a>';
+	$adminform = '<form method="post" action="index.php" name="adminform">
+	<div class="input-group input-group-sm adminlogin">
+	    <input type="submit" value="logout" name="adminlogout" class="btn btn-primary" />
+	</div>
+	</form>';
+	$adminbutton = '<a href="index.php?site=admin" class="nav-link">Administration</a>';
 }
 else {
-	$adminform = '<form method="post" action="index.php?site=admin" name="adminform"><input type="text" name="adminuser" /> <input type="password" name="adminpass" /> <input type="submit" value="login" name="adminlogin"/></form>';
+	$adminform = '<form method="post" action="index.php?site=admin" name="adminform">
+	<div class="input-group input-group-sm adminlogin">
+	    <input type="text" name="adminuser" class="form-control" />
+	    <input type="password" name="adminpass" class="form-control" />
+	    <input type="submit" value="login" name="adminlogin" class="btn btn-primary input-group-addon right" />
+	</div>
+	</form>';
 	$adminbutton = '';
 }
 

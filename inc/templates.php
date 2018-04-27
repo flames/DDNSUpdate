@@ -34,7 +34,7 @@ $LOG_TEMPLATE = '<br><p>{$LANG[updatelog]}: <pre class="script">{$log}</pre></p>
 $ZONE_TEMPLATE = '<br><p>{$LANG[yourzone]}: <pre class="script">
 {$host}.			{$conf[ttl]}	IN A			{$ip}
 mail.{$host}.		{$conf[ttl]}	IN A			{$ip}
-*.{$host}.		{$conf[ttl]}	IN CNAME		{$host}.
+*.{$host}.			{$conf[ttl]}	IN CNAME		{$host}.
 {$host}.			{$conf[ttl]}	IN MX 10		mail.{$host}.
 </pre></p>';
 

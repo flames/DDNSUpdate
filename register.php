@@ -32,14 +32,14 @@ if (isset($_POST['register']))
 	else if (empty($email)) {
 		echo '<b>Bam! Specify email.</b><br>';
 	}
-	else if (!eregi("^[a-z0-9\._-]+@+[a-z0-9\._-]+\.+[a-z]{2,4}$", $email)) {
+	else if (!preg_match("/^[a-z0-9\._-]+@+[a-z0-9\._-]+\.+[a-z]{2,4}$/i", $email)) {
 		echo '<b>Bam! eMail is not valid.</b><br>';
 	}
 	else if (empty($pass)) {
 		echo '<b>Bam! Specify password.</b><br>';
 	}
 	else if (strlen($pass) < 6) {
-		echo '<b>Bam! Specify password.</b><br>';
+		echo '<b>Bam! Specify a more secure password.</b><br>';
 	}
 	else if ($pass != $passretype) {
 		echo '<b>Bam! Password and retype do not match.</b><br>';
@@ -55,9 +55,10 @@ if (isset($_POST['register']))
 			echo '<b>Bam! This username is already in use on this domain.</b><br>';
 		}
 		else {
-			echo '<b>Bam! congrats, register this username.</b><br>';
+			echo '<b>Bam! congrats, You registered succesfully this username.</b><br>';
 			$timestamp = time();
-			$sql = "INSERT INTO accounts(A_id,user,password,dmnid,approved,email,registered,lastupdate,ip) VALUES ('','$user','$pass','$dmnid','0','$email','$timestamp','$timestamp','')";
+			$ip = $_SERVER["REMOTE_ADDR"];
+			$sql = "INSERT INTO accounts(A_id,user,password,dmnid,approved,email,registered,lastupdate,ip) VALUES ('','$user','$pass','$dmnid','0','$email','$timestamp','$timestamp','$ip')";
 			$insert = $db->query($sql);
 		}
 	}

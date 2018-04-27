@@ -83,10 +83,11 @@ if ($_SESSION['adminloggedin'] == 'muy bien') {
 
 	$sql = "SELECT D.D_id, D.domain, A.A_id, A.user, A.password, A.dmnid, A.approved, A.email, A.registered, A.lastupdate, A.ip FROM domains AS D INNER JOIN accounts AS A ON D.D_id = A.dmnid";
 	$result = $db->query($sql);
-	$list .= '<h2>Administration</h2>';
-	$list .= '<table class="adminlist">
+	$list .= '<div class="spacer top"></div>
+			  <form method="post" action="index.php?site=admin" class="inlineform" name="admin'.$row['A_id'].'">
+			  <table class="adminlist">
 			  <thead>
-			  <tr bgcolor="#c0c0c0">';
+			  <tr>';
 	$list .= '<th align="right">id</th>
 			  <th align="left">Host</th>
 			  <th></th>
@@ -99,21 +100,23 @@ if ($_SESSION['adminloggedin'] == 'muy bien') {
 			  <th align="left">Update IP</th>
 			  <th align="left">Last update</th>';
 	$list .= '</tr>
-			  </thead>';
+			  </thead>
+			  <tbody>';
 	while ($row = $result->fetch_assoc()) {
-		$list .= '<form method="post" action="index.php?site=admin" class="inlineform" name="admin'.$row['A_id'].'">
-				  <tbody>
-				  <tr>';
-		$list .= '<td bgcolor="#c0c0c0" align="right"><b>'.$row['A_id'].'</b></td>';
+		$list .= '<tr>';
+		$list .= '<td align="right"><b>'.$row['A_id'].'</b></td>';
 		$list .= '<td>'.$row['user'].'.'.$row['domain'].'</td>';
 		$list .= '<td><input type="hidden" name="id" value="'.$row['A_id'].'" />';
-		$list .= '<input type="Submit" value="delete" name="delete"></td>';
+		$list .= '<input type="Submit" value="delete" name="delete" class="btn btn-danger"></td>';
 		$list .= '<td>';
-		if ($row['approved'] == 0) { $list .= '<input type="Submit" value="allow" name="allow">'; }
-		else { $list .= '<input type="Submit" value="block" name="block">'; }
+		if ($row['approved'] == 0) { $list .= '<input type="Submit" value="allow" name="allow" class="btn btn-success">'; }
+		else { $list .= '<input type="Submit" value="block" name="block" class="btn btn-warning">'; }
 		$list .= '</td>';
 		# on the next line you may want to change input type to password, or even not to query the password from database in the statement above.
-		$list .= '<td><input type="text" name="userspass" value="'.$row['password'].'" size="10" /><input type="Submit" value="set" name="set"></td>';
+		$list .= '<td><div class="input-group input-group-sm">
+		    <input type="text" name="userspass" value="'.$row['password'].'" size="10" class="form-control" />
+		    <input type="Submit" value="set" name="set" class="btn btn-primary input-group-addon right">
+		</div></td>';
 		$list .= '<td>'.$row['email'].'</td>';
 		$registered = timeAgo($row['registered']); # call function to convert timestamp to "time ago" string
 		$list .= '<td>'.$registered.'</td>'; # "time ago" string
@@ -124,13 +127,13 @@ if ($_SESSION['adminloggedin'] == 'muy bien') {
 		#$list .= '<td>'.$row['lastupdate'].'</td>'; # normal timestamp Y-m-d H:i:s ## omfg, i forgot why i created this line and also why commented it out. maybe for debugging? guess we can delete it. xD
 		$lastupdate = timeAgo($row['lastupdate']); # call function to convert timestamp to "time ago" string
 		$list .= '<td>'.$lastupdate.'</td>'; # "time ago" string
-		$list .= '</tr>
-				  </tbody>
-				  </form>';
+		$list .= '</tr>';
 		$list .= "\n";
 	}
-	$list .= '</table>
-			  <br>';
+	$list .= '</tbody>
+			  </table>
+			  </form>
+			  <div class="spacer bottom"></div>';
 	echo $list;
 }
 else {

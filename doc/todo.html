@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DDNS Dokumentation</title>
+  </head>
+  <body>
+<p><b>To do (or ideas to improve)</b></p>
+<p>Das Script befindet
+  sich in einem sehr frühen Entwicklungsstadium, Übersetzungen für einige Strings
+  fehlen, Fehler können drin sein. Diverse Funktionen noch nicht oder noch nicht
+  ganz fertig. Wer Interesse hat, kann gerne mithelfen.</p>
+<p><ul>
+  <li>1. improvement: ddns.php - add http header for success and errors (so routers can log it correctly. currently we have only a text echo, which is always 200, so router thinks update was good, even if some error happened.)</li>
+  <ul>
+    <li>https://github.com/kilburn/bdns</li>
+    <li>200 OK  Die Anfrage wurde erfolgreich bearbeitet und das Ergebnis der Anfrage wird in der Antwort übertragen.</li>
+    <li>201 Created Die Anfrage wurde erfolgreich bearbeitet. Die angeforderte Ressource wurde vor dem Senden der Antwort erstellt. Das „Location“-Header-Feld enthält eventuell die Adresse der erstellten Ressource.</li>
+    <li>202 Accepted  Die Anfrage wurde akzeptiert, wird aber zu einem späteren Zeitpunkt ausgeführt. Das Gelingen der Anfrage kann nicht garantiert werden.</li>
+    <li>409 Conflict  Die Anfrage wurde unter falschen Annahmen gestellt. Im Falle einer PUT-Anfrage kann dies zum Beispiel auf eine zwischenzeitliche Veränderung der Ressource durch Dritte zurückgehen.</li>
+    <li>410 Gone  Die angeforderte Ressource wird nicht länger bereitgestellt und wurde dauerhaft entfernt.</li>
+  </ul>
+  <li>2. security: bind keys need to be moved to a secure location out of htdocs! or may be better implementation at all?</li>
+  <li>3. gui: translation strings for all elements</li>
+  <li>4. docu: update and translate this documentation (standalone installation w/o any panel)</li>
+  <li>5. security: passwords need to be encrypted and salted</li>
+  <li>6. gui: "forgot password" feature</li>
+  <li>7. update clients: windows, linux and osx (maybe some open source java client)</li>
+  <li>8. security: ddns.php update with a user generated token-key instead of users main password</li>
+  <li>9. gui admin: datatables with filtering and sorting (to easier find and clean inactive users / orphaned hosts)</li>
+  <li>10. gui admin: datatables with checkbox column and mass editing feature (delete, allow, block)</li>
+  <li>11. gui: better and responsive template</li>
+  <li>12. docu: convert this docu to clean MD</li>
+  <li>13. info: update info page with better and simplier instructions</li>
+  <li>14. gui: do we need a real login system? guess not. maybe later, if service grows, so one user can register multiple hosts (separate user from host) and have a dashboard with overview of his hosts and status of his services on those hosts.</li>
+  <li>15. gui: error block/allow/delete user. any button changes last id</li>
+  <li>16. gui: admin.php create domains feature</li>
+  <li>17. security: rndc key per user (generated at registration)</li>
+  <li>18. clean: admin.php add clean_zone template when delete a host</li>
+</ul></p>
+  </body>
+</html>

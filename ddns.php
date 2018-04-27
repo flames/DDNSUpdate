@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR | E_WARNING);
 /******
  *
  *	DDNS Update Utility
@@ -103,8 +104,8 @@ while ($row = $result->fetch_assoc()) {
 	else {
 		$host = $user.".".$domain;
 		$newip = gethostbyname($host);
-		#if ($ip != $newip) # comment this whole if-else in, if you want to do update-abuse-checking
-		#{
+		if ($ip != $newip) # comment this whole if-else in, if you want to do update-abuse-checking
+		{
 			# Generate a command script for nsupdate.
 			$tempfile = tempnam($conf['tempdir'], "nsupdate");
 			if (!$tempfile)
@@ -117,6 +118,7 @@ while ($row = $result->fetch_assoc()) {
 			# Run the nsupdate command.
 			$rc = system("nsupdate -k {$conf[nskey]} $tempfile 2>&1", $ex);
 			unlink($tempfile);
+			#echo "tempfile ".$tempfile."\n"; # Tempfile path for debugging
 			if ($rc === FALSE || $ex != 0)
 			{
 				echo "Fatal Error: nsupdate command failed, try again later.\n";
@@ -129,11 +131,11 @@ while ($row = $result->fetch_assoc()) {
 			$update = $db->query($sql);
 			#echo "Success: Your host ".$host." has been successfully assigned to IP address ".$ip.". Please note, there is a delay of a few minutes before the update takes effect.\n";
 			echo "Success\n";
-		#}
-		#else
-		#{
-		#	echo "Warning: Your Host is already assigned to this IP address ".$ip.", update canceled. Please do not\nabuse the server with unnecessary or too frequent updates.\n";
-		#}
+		}
+		else
+		{
+			echo "Warning: Your Host is already assigned to this IP address ".$ip.", update canceled. Please do not\nabuse the server with unnecessary or too frequent updates.\n";
+		}
 	}
 }
 

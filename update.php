@@ -110,6 +110,7 @@ if (isset($_POST['update']))
 				# Run the nsupdate command.
 				$rc = system("nsupdate -k {$conf[nskey]} $tempfile 2>&1", $ex);
 				unlink($tempfile);
+				#$log .= "tempfile ".$tempfile."\n"; # Tempfile path for debugging
 				if ($rc === FALSE || $ex != 0)
 				{
 					$log .= $LANG['fatalerror'].$LANG['nsupdateerror']."\n"; # nsupdate command failed

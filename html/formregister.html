@@ -1,27 +1,43 @@
-<h2><?=$LANG['titleregister'] ?></h2>
+<div class="spacer top"></div>
 <form method="post" action="index.php?site=register" name="ddnsform">
-<table border="0" cellspaceing="0" cellpadding="3">
-<tr>
-	<td width="150"><?=$LANG['user'] ?>:</td>
-	<td><input type="text" name="user" onBlur="usercheck_call();" /> <b>.</b> <select name="dmnid" onChange="usercheck_call();"><?=$domainselect ?></select><a name="user" id="user"> </a></td>
-</tr>
-<tr>
-	<td><?=$LANG['email'] ?>:</td>
-	<td><input type="text" name="email" /><a name="email" id="email"> </a></td>
-</tr>
-<tr>
-	<td><?=$LANG['pass'] ?>:</td>
-	<td><input type="password" name="pass" /><a name="pass" id="pass"> </a></td>
-</tr>
-<tr>
-	<td><?=$LANG['passretype'] ?>:</td>
-	<td><input type="password" name="passretype" /><a name="passretype" id="passretype"> </a></td>
-</tr>
-<tr>
-	<td>&nbsp;</td>
-	<td>
-		<input type="submit" value="Register" name="register" onclick="return checkForm()" />
-	</td>
-</tr>
-</table>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['user'] ?></label>
+        <div class="col-sm-9">
+            <div class="input-group spezial">
+                <input type="text" name="user" onBlur="usercheck_call();" class="form-control input-group-addon left" />
+                <div class="form-control mid">.</div>
+                <select name="dmnid" onChange="usercheck_call();" class="form-control input-group-addon right"><?=$domainselect ?></select>
+            </div>
+        </div>
+        <a name="user" id="user"></a>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['email'] ?></label>
+        <div class="col-sm-9">
+            <input type="text" name="email" class="form-control" />
+        </div>
+        <a name="email" id="email"></a>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['pass'] ?></label>
+        <div class="col-sm-9">
+            <input type="password" name="pass" class="form-control" />
+        </div>
+        <a name="pass" id="pass"></a>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['passretype'] ?></label>
+        <div class="col-sm-9">
+            <input type="password" name="passretype" class="form-control" />
+        </div>
+        <a name="passretype" id="passretype"></a>
+    </div>
+
+    <input type="submit" value="Register" name="register" onclick="return checkForm()" class="btn btn-primary float-right" />
+
 </form>
+<div class="spacer bottom"></div>

@@ -1,23 +1,32 @@
-<h2><?=$LANG['titleupdate'] ?></h2>
+<div class="spacer top"></div>
 <form method="post" action="index.php?site=update" name="ddnsform">
-<table border="0" cellspaceing="0" cellpadding="3">
-<tr>
-	<td width="150"><?=$LANG['user'] ?>:</td>
-	<td><input type="text" name="user" /> <b>.</b> <select name="dmnid"><?=$domainselect ?></select><a name="user" id="user"> </a></td>
-</tr>
-<tr>
-	<td><?=$LANG['pass'] ?>:</td>
-	<td><input type="password" name="pass" /><a name="pass" id="pass"> </a></td>
-</tr>
-<tr>
-	<td><?=$LANG['ip'] ?>:</td>
-	<td><input type="text" name="ip" /></td>
-</tr>
-<tr>
-	<td>&nbsp;</td>
-	<td>
-		<input type="submit" value="Update" name="update" onclick="return checkForm()" />
-	</td>
-</tr>
-</table>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['user'] ?></label>
+        <div class="col-sm-9">
+            <div class="input-group spezial">
+                <input type="text" name="user" onBlur="usercheck_call();" class="form-control input-group-addon left" />
+                <div class="form-control mid">.</div>
+                <select name="dmnid" onChange="usercheck_call();" class="form-control input-group-addon right"><?=$domainselect ?></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['pass'] ?></label>
+        <div class="col-sm-9">
+            <input type="password" name="pass" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label"><?=$LANG['ip'] ?></label>
+        <div class="col-sm-9">
+            <input type="text" name="ip" class="form-control" />
+        </div>
+    </div>
+
+    <input type="submit" value="Update" name="update" onclick="return checkForm()" class="btn btn-primary float-right" />
+
 </form>
+<div class="spacer bottom"></div>
