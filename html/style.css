@@ -124,7 +124,7 @@ pre {
   background-color: white;
 }
 .spezial input.left {
-  border-right: 0px;
+  border-right: 0;
 }
 .spezial div.mid {
   max-width: 6px;
@@ -134,7 +134,7 @@ pre {
   padding-right: 0;
 }
 .spezial select.right {
-  border-left: 0px;
+  border-left: 0;
   -webkit-appearance: none;
 }
 .btn.input-group-addon.right {
