@@ -63,7 +63,7 @@ _**#vi /etc/bind/nsupdate.conf**_
 
 und fügen diesen Inhalt ein
 
-    // dmn \[ddns.tld\] cfg entry BEGIN.
+    // dmn [ddns.tld] cfg entry BEGIN.
 
     zone "ddns.tld" {
 
@@ -81,7 +81,7 @@ und fügen diesen Inhalt ein
 
     };
 
-    // dmn \[ddns.tld\] cfg entry END.
+    // dmn [ddns.tld] cfg entry END.
 
 beachtet das _allow-update_ Statement, _key ddns.tld_ ist der Name des Schlüssels. Diesen werden wir später für sichere Updates nutzen, er läuft uns noch einige Male über den Weg.
 
@@ -227,61 +227,61 @@ _**#cp /etc/bind/Kddns.tld.+157+41090.key /etc/www/ispcp/gui/tools/ddns/keys/Kdd
 
 _**#vi /etc/www/ispcp/gui/tools/ddns/inc/config.php**_
 
-und teilen der Variable _**$conf\['nskey'\]**_ den Dateinamen mit
+und teilen der Variable _**$conf['nskey']**_ den Dateinamen mit
 
-    $conf\['nskey'\] = "keys/Kddns.tld.+157+41090.key";
+    $conf['nskey'] = "keys/Kddns.tld.+157+41090.key";
 
 Des weiteren passen wir die Zugangsdaten des Administrators an
 
-    $conf\['adminuser'\] = "admin";
+    $conf['adminuser'] = "admin";
 
-    $conf\['adminpass'\] = "pass123";
+    $conf['adminpass'] = "pass123";
 
 und die Domain, die standardmäßig aktualisiert werden soll (im Falle dass wir bei Schritt **1, 1.3, 1.4** und **1.5** mehr als eine dynamische Zone erstellt haben)
 
-    $conf\['domain'\] = 'ddns.tld';
+    $conf['domain'] = 'ddns.tld';
 
 **3.5** um die Benutzer zu authentifizieren, erstellen wir eine MySQL Datenbank mit dem Namen _ddns_ und darin folgende Tabellen:
 
-    CREATE TABLE \`accounts\` (
+    CREATE TABLE `accounts` (
 
-      \`A\_id\` int(11) NOT NULL auto\_increment,
+      `A_id` int(11) NOT NULL auto_increment,
 
-      \`user\` varchar(20) collate utf8\_unicode\_ci NOT NULL,
+      `user` varchar(20) collate utf8_unicode_ci NOT NULL,
 
-      \`password\` varchar(20) collate utf8\_unicode\_ci NOT NULL,  
+      `password` varchar(20) collate utf8_unicode_ci NOT NULL,  
 
-      \`dmnid\` int(11) NOT NULL,
+      `dmnid` int(11) NOT NULL,
 
-      \`approved\` int(11) NOT NULL default '0',
+      `approved` int(11) NOT NULL default '0',
 
-      \`email\` varchar(100) collate utf8\_unicode\_ci NOT NULL,
+      `email` varchar(100) collate utf8_unicode_ci NOT NULL,
 
-      \`registered\` int(100) NOT NULL,
+      `registered` int(100) NOT NULL,
     
-      \`lastupdate\` int(100) NOT NULL,
+      `lastupdate` int(100) NOT NULL,
     
-      \`ip\` varchar(50) collate utf8\_unicode\_ci NOT NULL,
+      `ip` varchar(50) collate utf8_unicode_ci NOT NULL,
 
-      PRIMARY KEY  (\`A_id\`)
+      PRIMARY KEY  (`A_id`)
 
-    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8\_unicode\_ci AUTO_INCREMENT=1 ;
+    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
-    CREATE TABLE IF NOT EXISTS \`domains\` (
+    CREATE TABLE IF NOT EXISTS `domains` (
 
-      \`D\_id\` int(11) NOT NULL auto\_increment,
+      `D_id` int(11) NOT NULL auto_increment,
     
-      \`domain\` varchar(50) collate utf8\_unicode\_ci NOT NULL,_
+      `domain` varchar(50) collate utf8_unicode_ci NOT NULL,_
 
-      PRIMARY KEY  (\`D_id\`),
+      PRIMARY KEY  (`D_id`),
     
-      UNIQUE KEY \`domain\` (\`domain\`)
+      UNIQUE KEY `domain` (`domain`)
 
-    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8\_unicode\_ci AUTO_INCREMENT=3 ;
+    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 **3.6** zum Testen legen wir ein Paar Einträge an:
 
-    INSERT INTO \`accounts\` (\`A_id\`, \`user\`, \`password\`, \`dmnid\`, \`approved\`, \`email\`, \`registered\`, \`lastupdate\`, \`ip\`) VALUES
+    INSERT INTO `accounts` (`A_id`, `user`, `password`, `dmnid`, `approved`, `email`, `registered`, `lastupdate`, `ip`) VALUES
 
     (1, 'myhomepc', 'pass123', 1, 1, 'home@mail.tld', 1285356317, 1285356317, ''),
     
