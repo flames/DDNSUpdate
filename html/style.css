@@ -114,19 +114,21 @@ body {
   color: rgba(255, 255, 255, .5);
 }
 
-
-
-
 /*
  * Custom
  */
-code{font-family: "Courier New", sans-serif}
+code {
+    font-family: "Courier New", sans-serif;
+}
+
 pre {
   background-color: #000;
 }
+
 .spezial input.left {
   border-right: 0;
 }
+
 .spezial div.mid {
   max-width: 6px;
   border-left: none;
@@ -134,25 +136,32 @@ pre {
   padding-left: 0;
   padding-right: 0;
 }
+
 .spezial select.right {
   border-left: 0;
   -webkit-appearance: none;
 }
+
 .btn.input-group-addon.right {
     border-radius: 0 5px 5px 0;
 }
+
 .spacer.top {
   height: 120px;
 }
+
 .spacer.bottom {
   height: 60px;
 }
+
 pre {
   padding: 10px;
 }
+
 .adminlogin {
   width: 400px;
 }
+
 .adminlogin input {
   width: 480px;
   height: 24px;
@@ -160,6 +169,7 @@ pre {
   padding: 4px;
   font-size: 10px;
 }
+
 .adminlogin .btn {
   width: auto;
   height: 24px;
@@ -170,35 +180,44 @@ pre {
 table.adminlist {
   border-spacing: 1px;
 }
+
 table.adminlist thead th {
   padding: 6px;
   white-space: nowrap ! important;
 }
+
 table.adminlist tbody td {
   padding: 6px;
   white-space: nowrap ! important;
 }
+
 table.adminlist tbody td img {
   top: 1px;
 }
+
 header {
   margin-top: 20px;
 }
+
 .masterhead-brand {
   margin-right: 10px;
 }
+
 .nav-masterhead {
   margin-left: 10px;
 }
+
 table.adminlist > thead {
   background-color: #037aff;
 }
+
 table.adminlist > tbody > tr > td:first-child, table.adminlist > thead > tr > th:first-child {
   background-color: #037aff;
   text-align: center;
   padding-left: 10px;
   padding-right: 10px;
 }
+
 table.adminlist > tbody > tr:nth-child(even) {background-color: #333;}
 table.adminlist > tbody > tr:nth-child(odd) {background-color: #444;}
 table.adminlist > tbody > tr > td:nth-child(5) {min-width: 220px;}
