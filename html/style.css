@@ -120,8 +120,9 @@ body {
 /*
  * Custom
  */
+code{font-family: "Courier New", sans-serif}
 pre {
-  background-color: white;
+  background-color: #000;
 }
 .spezial input.left {
   border-right: 0;
