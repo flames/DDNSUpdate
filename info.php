@@ -1,6 +1,6 @@
 <div class="spacer top"></div>
 <p>For automated updates you can use this URL directly. Exchange the patameter values for username and password 
-<span class="important">http://flames.space/ddns.php?user=&lt;username&gt;&amp;pass=&lt;password&gt;</span></p>
+<span class="important">http://<?php echo $_SERVER['HTTP_HOST']; ?>/ddns.php?user=&lt;username&gt;&amp;pass=&lt;password&gt;</span></p>
 
 Actually we offer only one domain. As soon as you will be able to choose more top-level domains for your host and you decide to use another domain than "ddns.tld", just add parameter <span class="important">&amp;domain=&lt;domain&gt;</span> to the URL</p>
 
@@ -18,7 +18,7 @@ Actually we offer only one domain. As soon as you will be able to choose more to
 #!/bin/sh
 cd /tmp
 rm update.php* 2>/dev/null
-wget https://flames.space/ddns.php?user=&lt;username&gt;&amp;pass=&lt;password&gt; 2>/dev/null
+wget https://<?php echo $_SERVER['HTTP_HOST']; ?>/ddns.php?user=&lt;username&gt;&amp;pass=&lt;password&gt; 2>/dev/null
         </code>
     </pre>
 </p>
