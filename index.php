@@ -15,13 +15,15 @@ require_once("inc/config.php");
 require_once("inc/db.php");
 require_once("inc/templates.php");
 
+$hostname= $_SERVER['HTTP_HOST'];
+if (!$hostname) $hostname = $conf['hostname'];
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2); # get browsers language
 if(in_array($lang,$conf['lang'])) { # if translation for browsers language is there, use it
-	include("lang/".$lang.".lang.php");
+	include("l10n/".$lang.".lang.php");
 }
 else # else use english
 {
-	include("lang/en.lang.php");
+	include("l10n/en.lang.php");
 }
 
 # Admin login / logout management, adminform generation
